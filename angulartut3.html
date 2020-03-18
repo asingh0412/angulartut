@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" >
+  <head>
+    <meta charset="utf-8">
+    <title>AngularJS Tutorial 3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
+  </head>
+  <body>
+    <h1>Angular JS tutorial (Derek Banas)</h1>
+    <div ng-app="app3" >
+      <div ng-controller="gCtrl">
+          <h3 >{{groceries.length}} Groceries too get</h3>
+          <ul>
+            <li ng-repeat="g in groceries">{{g.item}}</li>
+          </ul>
+
+          <ol>
+            <li ng-repeat="g in groceries" ng-if="$index >0">
+              {{g.item}} {{$index }}
+              </li>
+          </ol>
+          <h3>Table</h3>
+          <table>
+            <tr ng-repeat-start="g in groceries">
+                <td>{{g.item}}</td>
+            </tr>
+            <tr ng-repeat-end>
+                <td>{{g.purchases}}</td>
+            </tr>
+          </table>
+          <label for="">Change 1st item: </label>
+          <input type="text"ng-model="groceries[0].item" name="" value="">
+<br>
+          <label >
+            <input type="checkbox" ng-model="showList">
+              Show Unordered list
+          </label>
+          <h3>Grocery List 123</h3>
+            <div ng-include="'groceries.html'">
+              <div class="">
+
+
+              <h5>abcd</h5>
+              <label >
+                <input type="checkbox" ng-model="showList">
+                  Show Unordered list
+              </label>
+                  </div>
+              <ng-include src="getList()"></ng-include>
+            </div>
+          <h2>Other controllers. </h2>
+          <h4 ng-controller="ctrl1">First Random Number : {{randomNum1}}</h4>
+          <h4 ng-controller="ctrl1">Second Random Number : {{randomNum2}}</h4>
+
+      </div>
+    </div>
+
+
+
+    <script src="js/exam3.js" type="text/javascript"></script>
+    <script src="js/exam2.js" type="text/javascript"></script>
+  </body>
+</html>
